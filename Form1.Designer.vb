@@ -680,7 +680,7 @@ Partial Class GSMTimed
         Me.ToolStripStatusLabel3.Margin = New System.Windows.Forms.Padding(3, 3, 0, 2)
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
         Me.ToolStripStatusLabel3.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(213, 26)
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(213, 19)
         Me.ToolStripStatusLabel3.Text = "CWE, Inc.   www.cwe-inc.com"
         '
         'tbxTotPct2
@@ -1898,7 +1898,7 @@ Partial Class GSMTimed
         Me.nUpDnPctA1.DecimalPlaces = 1
         Me.nUpDnPctA1.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
         Me.nUpDnPctA1.Location = New System.Drawing.Point(287, 80)
-        Me.nUpDnPctA1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.nUpDnPctA1.Margin = New System.Windows.Forms.Padding(2)
         Me.nUpDnPctA1.Name = "nUpDnPctA1"
         Me.nUpDnPctA1.Size = New System.Drawing.Size(58, 20)
         Me.nUpDnPctA1.TabIndex = 232
@@ -1908,7 +1908,7 @@ Partial Class GSMTimed
         Me.nUpDnPctB1.DecimalPlaces = 1
         Me.nUpDnPctB1.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
         Me.nUpDnPctB1.Location = New System.Drawing.Point(287, 119)
-        Me.nUpDnPctB1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.nUpDnPctB1.Margin = New System.Windows.Forms.Padding(2)
         Me.nUpDnPctB1.Name = "nUpDnPctB1"
         Me.nUpDnPctB1.Size = New System.Drawing.Size(58, 20)
         Me.nUpDnPctB1.TabIndex = 233
@@ -1918,7 +1918,7 @@ Partial Class GSMTimed
         Me.nUpDnPctC1.DecimalPlaces = 1
         Me.nUpDnPctC1.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
         Me.nUpDnPctC1.Location = New System.Drawing.Point(287, 157)
-        Me.nUpDnPctC1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.nUpDnPctC1.Margin = New System.Windows.Forms.Padding(2)
         Me.nUpDnPctC1.Name = "nUpDnPctC1"
         Me.nUpDnPctC1.Size = New System.Drawing.Size(58, 20)
         Me.nUpDnPctC1.TabIndex = 234
@@ -1928,7 +1928,7 @@ Partial Class GSMTimed
         Me.nUpDnPctC2.DecimalPlaces = 1
         Me.nUpDnPctC2.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
         Me.nUpDnPctC2.Location = New System.Drawing.Point(489, 158)
-        Me.nUpDnPctC2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.nUpDnPctC2.Margin = New System.Windows.Forms.Padding(2)
         Me.nUpDnPctC2.Name = "nUpDnPctC2"
         Me.nUpDnPctC2.Size = New System.Drawing.Size(58, 20)
         Me.nUpDnPctC2.TabIndex = 238
@@ -1938,7 +1938,7 @@ Partial Class GSMTimed
         Me.nUpDnPctB2.DecimalPlaces = 1
         Me.nUpDnPctB2.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
         Me.nUpDnPctB2.Location = New System.Drawing.Point(489, 119)
-        Me.nUpDnPctB2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.nUpDnPctB2.Margin = New System.Windows.Forms.Padding(2)
         Me.nUpDnPctB2.Name = "nUpDnPctB2"
         Me.nUpDnPctB2.Size = New System.Drawing.Size(58, 20)
         Me.nUpDnPctB2.TabIndex = 237
@@ -1948,7 +1948,7 @@ Partial Class GSMTimed
         Me.nUpDnPctA2.DecimalPlaces = 1
         Me.nUpDnPctA2.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
         Me.nUpDnPctA2.Location = New System.Drawing.Point(489, 82)
-        Me.nUpDnPctA2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.nUpDnPctA2.Margin = New System.Windows.Forms.Padding(2)
         Me.nUpDnPctA2.Name = "nUpDnPctA2"
         Me.nUpDnPctA2.Size = New System.Drawing.Size(58, 20)
         Me.nUpDnPctA2.TabIndex = 236
@@ -1958,7 +1958,7 @@ Partial Class GSMTimed
         Me.nUpDnPctC3.DecimalPlaces = 1
         Me.nUpDnPctC3.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
         Me.nUpDnPctC3.Location = New System.Drawing.Point(693, 158)
-        Me.nUpDnPctC3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.nUpDnPctC3.Margin = New System.Windows.Forms.Padding(2)
         Me.nUpDnPctC3.Name = "nUpDnPctC3"
         Me.nUpDnPctC3.Size = New System.Drawing.Size(58, 20)
         Me.nUpDnPctC3.TabIndex = 242
@@ -1968,7 +1968,7 @@ Partial Class GSMTimed
         Me.nUpDnPctB3.DecimalPlaces = 1
         Me.nUpDnPctB3.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
         Me.nUpDnPctB3.Location = New System.Drawing.Point(693, 119)
-        Me.nUpDnPctB3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.nUpDnPctB3.Margin = New System.Windows.Forms.Padding(2)
         Me.nUpDnPctB3.Name = "nUpDnPctB3"
         Me.nUpDnPctB3.Size = New System.Drawing.Size(58, 20)
         Me.nUpDnPctB3.TabIndex = 241
@@ -1978,7 +1978,7 @@ Partial Class GSMTimed
         Me.nUpDnPctA3.DecimalPlaces = 1
         Me.nUpDnPctA3.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
         Me.nUpDnPctA3.Location = New System.Drawing.Point(693, 80)
-        Me.nUpDnPctA3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.nUpDnPctA3.Margin = New System.Windows.Forms.Padding(2)
         Me.nUpDnPctA3.Name = "nUpDnPctA3"
         Me.nUpDnPctA3.Size = New System.Drawing.Size(58, 20)
         Me.nUpDnPctA3.TabIndex = 240
@@ -1988,7 +1988,7 @@ Partial Class GSMTimed
         Me.nUpDnPctC4.DecimalPlaces = 1
         Me.nUpDnPctC4.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
         Me.nUpDnPctC4.Location = New System.Drawing.Point(899, 158)
-        Me.nUpDnPctC4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.nUpDnPctC4.Margin = New System.Windows.Forms.Padding(2)
         Me.nUpDnPctC4.Name = "nUpDnPctC4"
         Me.nUpDnPctC4.Size = New System.Drawing.Size(58, 20)
         Me.nUpDnPctC4.TabIndex = 246
@@ -1998,7 +1998,7 @@ Partial Class GSMTimed
         Me.nUpDnPctB4.DecimalPlaces = 1
         Me.nUpDnPctB4.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
         Me.nUpDnPctB4.Location = New System.Drawing.Point(899, 118)
-        Me.nUpDnPctB4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.nUpDnPctB4.Margin = New System.Windows.Forms.Padding(2)
         Me.nUpDnPctB4.Name = "nUpDnPctB4"
         Me.nUpDnPctB4.Size = New System.Drawing.Size(58, 20)
         Me.nUpDnPctB4.TabIndex = 245
@@ -2008,7 +2008,7 @@ Partial Class GSMTimed
         Me.nUpDnPctA4.DecimalPlaces = 1
         Me.nUpDnPctA4.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
         Me.nUpDnPctA4.Location = New System.Drawing.Point(899, 80)
-        Me.nUpDnPctA4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.nUpDnPctA4.Margin = New System.Windows.Forms.Padding(2)
         Me.nUpDnPctA4.Name = "nUpDnPctA4"
         Me.nUpDnPctA4.Size = New System.Drawing.Size(58, 20)
         Me.nUpDnPctA4.TabIndex = 244
@@ -2016,7 +2016,7 @@ Partial Class GSMTimed
         'nUpDnTFlow1
         '
         Me.nUpDnTFlow1.Location = New System.Drawing.Point(342, 231)
-        Me.nUpDnTFlow1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.nUpDnTFlow1.Margin = New System.Windows.Forms.Padding(2)
         Me.nUpDnTFlow1.Maximum = New Decimal(New Integer() {50000, 0, 0, 0})
         Me.nUpDnTFlow1.Name = "nUpDnTFlow1"
         Me.nUpDnTFlow1.Size = New System.Drawing.Size(68, 20)
@@ -2025,7 +2025,7 @@ Partial Class GSMTimed
         'nUpDnTFlow2
         '
         Me.nUpDnTFlow2.Location = New System.Drawing.Point(545, 231)
-        Me.nUpDnTFlow2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.nUpDnTFlow2.Margin = New System.Windows.Forms.Padding(2)
         Me.nUpDnTFlow2.Maximum = New Decimal(New Integer() {50000, 0, 0, 0})
         Me.nUpDnTFlow2.Name = "nUpDnTFlow2"
         Me.nUpDnTFlow2.Size = New System.Drawing.Size(68, 20)
@@ -2034,7 +2034,7 @@ Partial Class GSMTimed
         'nUpDnTFlow3
         '
         Me.nUpDnTFlow3.Location = New System.Drawing.Point(748, 229)
-        Me.nUpDnTFlow3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.nUpDnTFlow3.Margin = New System.Windows.Forms.Padding(2)
         Me.nUpDnTFlow3.Maximum = New Decimal(New Integer() {50000, 0, 0, 0})
         Me.nUpDnTFlow3.Name = "nUpDnTFlow3"
         Me.nUpDnTFlow3.Size = New System.Drawing.Size(68, 20)
@@ -2043,7 +2043,7 @@ Partial Class GSMTimed
         'nUpDnTFlow4
         '
         Me.nUpDnTFlow4.Location = New System.Drawing.Point(954, 231)
-        Me.nUpDnTFlow4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.nUpDnTFlow4.Margin = New System.Windows.Forms.Padding(2)
         Me.nUpDnTFlow4.Maximum = New Decimal(New Integer() {50000, 0, 0, 0})
         Me.nUpDnTFlow4.Name = "nUpDnTFlow4"
         Me.nUpDnTFlow4.Size = New System.Drawing.Size(68, 20)
@@ -2245,7 +2245,7 @@ Partial Class GSMTimed
         Me.Controls.Add(Me.ComboGas0)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "GSMTimed"
-        Me.Text = "GSM-CommVS v.3.51"
+        Me.Text = "GSM-CommVS v.3.61"
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)

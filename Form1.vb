@@ -1,8 +1,8 @@
 ﻿' *****************************************************************************************************
 ' GSM-CommVS 
-' (c) 2019 CWE, Inc.
-' 2019-11-04 v3.51
-' created with Visual Basic.net 2015
+' (c) 2020 CWE, Inc.
+' 2020-07-03 v3.61
+' created with Visual Studio 2019  vb.net
 ' Conutrol program for CWE GSM-3 Gas Mixer
 ' *****************************************************************************************************
 Option Explicit On
@@ -32,9 +32,7 @@ Public Class GSMTimed
     Dim pctGas1, pctGas2, pctGas3
     Dim run_time(100) As Integer
     Dim later, right_now
-
     Dim maxflow1, maxflow2, maxflow3         ' ranges of installed flow controllers
-
     Dim maxTotalFlow, FillGas
     Dim leds() As Button                     ' this is really a control array; elements defined in form load below
     Dim stepboxes() As TextBox               '  control array of sequencer text boxes containing run times
@@ -159,8 +157,6 @@ Public Class GSMTimed
 
 
 
-
-
     ' this is the ProgBar1 progress bar timer
     ' tick increment is set programatically to allow 100 ticks full scale
     Private Sub progTimer_Tick(sender As Object, e As EventArgs) Handles progTimer.Tick
@@ -168,8 +164,6 @@ Public Class GSMTimed
             ProgBar1.Value += 1     ' increment progress bar at bottom of screen
         End If
     End Sub
-
-
 
 
 
@@ -457,7 +451,7 @@ cleanup_and_exit:       ' close down sequencer operations
 
         MSComm1.PortName = comboPort.Text
         'MSComm1.Settings = "19200,N,8,1"
-        MSComm1.Open()              ' Open the port.
+        MSComm1.Open()               ' Open the port.
         OutputString = "2"
         MSComm1.Write(OutputString)       ' send the command string
         MSComm1.Close()           ' Close the port.
@@ -473,7 +467,6 @@ cleanup_and_exit:       ' close down sequencer operations
         End If
 
         MSComm1.PortName = comboPort.Text
-        'MSComm1.Settings = "19200,N,8,1"
         MSComm1.Open()              ' Open the port.
         OutputString = "3"
         MSComm1.Write(OutputString)       ' send the command string
@@ -490,7 +483,6 @@ cleanup_and_exit:       ' close down sequencer operations
         End If
 
         MSComm1.PortName = comboPort.Text
-        'MSComm1.Settings = "19200,N,8,1"
         MSComm1.Open()              ' Open the port.
         OutputString = "4"
         MSComm1.Write(OutputString)       ' send the command string
@@ -1278,13 +1270,15 @@ cleanup_and_exit:       ' close down sequencer operations
             nUpDnPctC4.BackColor = Color.White       ' make "fill" text box white
         End If
 
-        '-----------------------------------------------------------------------------------------------------------------
+        '=================================================================================================================
+        '                        UPDATE MIXTURE TOTAL PERCENT AND CHECK FOR >100% ERROR 
+        '=================================================================================================================
         'Update total percent boxes by adding up individual gas percentages; should equal 100%!
         totalpct1 = nUpDnPctA1.Value + nUpDnPctB1.Value + nUpDnPctC1.Value
         tbxTotPct1.Text = totalpct1 & "%"
         If totalpct1 > 100 Then
             tbxTotPct1.ForeColor = Color.Red
-            flgPctError1 = 1
+            flgPctError1 = 1                    ' error flag will trigger warning in message textbox
         Else
             tbxTotPct1.ForeColor = Color.Black
             flgPctError1 = 0
@@ -1320,9 +1314,9 @@ cleanup_and_exit:       ' close down sequencer operations
             flgPctError4 = 0
         End If
 
-        '-----------------------------------------------------------------------------------------------------------------
-        '                                      Format display values
-        '-----------------------------------------------------------------------------------------------------------------
+        '=================================================================================================================
+        '                      UPDATE AND FORMAT INDIVIDUAL FLOWS AND FLAG OUT-OF-RANGE ERRORS 
+        '=================================================================================================================
         ' update individual flow displays for all 4 mixes
         ' color text red if outside range for that channel's flow controller
         ' MIX 1
