@@ -23,7 +23,6 @@ Public Class GSMTimed
     Dim flgFlowError1, flgFlowError2, flgFlowError3, flgFlowError4, flgFlowError5
     Dim flgFlowError6, flgFlowError7, flgFlowError8, flgFlowError9, flgFlowError10
     Dim flgFlowError11, flgFlowError12
-    Dim flgPctError1, flgPctError2, flgPctError3, flgPctError4
     Dim sHour, sMin, sSec As Integer        ' sequencer time variables
     Dim xb, yb, zb, flgStop As Boolean
     Dim seqRunning As Boolean = False       ' flag to prevent user from clicking any RUN buttons while sequencer is running
@@ -32,6 +31,8 @@ Public Class GSMTimed
     Dim pctGas1, pctGas2, pctGas3
     Dim run_time(100) As Integer
     Dim later, right_now
+
+
 
     Dim maxflow1, maxflow2, maxflow3         ' ranges of installed flow controllers
 
@@ -77,6 +78,7 @@ Public Class GSMTimed
 
         CreateChart()
         FormatUpDns()
+
     End Sub
 
     ' increment seconds counter using stepTimer component
@@ -158,7 +160,16 @@ Public Class GSMTimed
     End Sub
 
 
-
+    ' update MESSAGE BOX with any error messages
+    Private Sub tbxErrMsg_TextChanged(sender As Object, e As EventArgs) Handles tbxErrMsg.TextChanged
+        If flgFlowError1 = 1 Or flgFlowError2 = 1 Or flgFlowError3 = 1 Or flgFlowError4 = 1 Or
+            flgFlowError5 = 1 Or flgFlowError6 = 1 Or flgFlowError7 = 1 Or flgFlowError8 = 1 Or
+            flgFlowError9 = 1 Or flgFlowError10 = 1 Or flgFlowError11 = 1 Or flgFlowError12 = 1 Then
+            tbxErrMsg.Text = "Flow out of range!" & vbCrLf & "Adjust gas percent or TOTAL FLOW."
+        Else
+            tbxErrMsg.Text = "STATUS: OK"
+        End If
+    End Sub
 
 
     ' this is the ProgBar1 progress bar timer
@@ -427,6 +438,26 @@ cleanup_and_exit:       ' close down sequencer operations
     End Sub
 
 
+    '=========================================================================================================================================
+    '                               TOTAL FLOW SETTING ROUTINES
+    '=========================================================================================================================================
+    ' following subs handle all the TOTAL FLOW updowns for the 4 mixtures
+    ' This was not needed in the VBC version, which used "buddy" controls
+    ' NOTE: upDn's work in reverse, so values are correctred to increment with up arrow, and vice-versa
+    'Private Sub upDnFlow1_Scroll(sender As Object, e As ScrollEventArgs) Handles upDnFlow1.Scroll
+    '    tbxTFlow1.Text = -1 * upDnFlow1.Value
+    'End Sub
+    'Private Sub upDnFlow2_Scroll(sender As Object, e As ScrollEventArgs) Handles upDnFlow2.Scroll
+    '    tbxTFlow2.Text = -1 * upDnFlow2.Value
+    'End Sub
+    'Private Sub upDnFlow3_Scroll(sender As Object, e As ScrollEventArgs) Handles upDnFlow3.Scroll
+    '    tbxTFlow3.Text = -1 * upDnFlow3.Value
+    'End Sub
+    'Private Sub upDnFlow4_Scroll(sender As Object, e As ScrollEventArgs) Handles upDnFlow4.Scroll
+    '    tbxTFlow4.Text = -1 * upDnFlow4.Value
+    'End Sub
+
+
 
     '=========================================================================================================================================
     '                                           RUN MIXTURE PUSHBUTTON ROUTINES
@@ -436,7 +467,7 @@ cleanup_and_exit:       ' close down sequencer operations
 
         If seqRunning = True Then           ' this locks out user from clicking RUN when sequencer is running
             btnRun1.Enabled = False
-        Else btnRun1.Enabled = True
+        Else btnRun1.enabled = True
         End If
 
         MSComm1.PortName = comboPort.Text
@@ -791,6 +822,7 @@ cleanup_and_exit:       ' close down sequencer operations
             Dim result As String                            ' get filename and show in status strip at bottom of window
             result = System.IO.Path.GetFileName(fnConfig)   ' get plain filename without full path
             lblConfigStrip.Text = "Configuration file:  " & result
+
             FormatUpDns()
         End If
     End Sub
@@ -1116,7 +1148,7 @@ cleanup_and_exit:       ' close down sequencer operations
             ' Mix A1
             nUpDnPctA1.Enabled = False           ' make updn control invisible
             nUpDnPctA1.BackColor = Color.Aqua     ' change "fill" text box to blue
-            If (nUpDnPctB1.Value + nUpDnPctC1.Value) <= 100 Then    ' make sure total doesn't exceed 100%
+            If (nUpDnPctA1.Value + nUpDnPctC1.Value) <= 100 Then    ' make sure total doesn't exceed 100%
                 nUpDnPctA1.Value = 100 - (nUpDnPctB1.Value + nUpDnPctC1.Value) ' compute fill gas value
             Else
                 nUpDnPctA1.Value = 0                                            ' other values too big, so make fill gas 0%
@@ -1282,43 +1314,15 @@ cleanup_and_exit:       ' close down sequencer operations
         'Update total percent boxes by adding up individual gas percentages; should equal 100%!
         totalpct1 = nUpDnPctA1.Value + nUpDnPctB1.Value + nUpDnPctC1.Value
         tbxTotPct1.Text = totalpct1 & "%"
-        If totalpct1 > 100 Then
-            tbxTotPct1.ForeColor = Color.Red
-            flgPctError1 = 1
-        Else
-            tbxTotPct1.ForeColor = Color.Black
-            flgPctError1 = 0
-        End If
 
         totalpct2 = nUpDnPctA2.Value + nUpDnPctB2.Value + nUpDnPctC2.Value
         tbxTotPct2.Text = totalpct2 & "%"
-        If totalpct2 > 100 Then
-            tbxTotPct2.ForeColor = Color.Red
-            flgPctError2 = 1
-        Else
-            tbxTotPct2.ForeColor = Color.Black
-            flgPctError2 = 0
-        End If
 
         totalpct3 = nUpDnPctA3.Value + nUpDnPctB3.Value + nUpDnPctC3.Value
         tbxTotPct3.Text = totalpct3 & "%"
-        If totalpct3 > 100 Then
-            tbxTotPct3.ForeColor = Color.Red
-            flgPctError3 = 1
-        Else
-            tbxTotPct3.ForeColor = Color.Black
-            flgPctError3 = 0
-        End If
 
         totalpct4 = nUpDnPctA4.Value + nUpDnPctB4.Value + nUpDnPctC4.Value
         tbxTotPct4.Text = totalpct4 & "%"
-        If totalpct4 > 100 Then
-            tbxTotPct4.ForeColor = Color.Red
-            flgPctError4 = 1
-        Else
-            tbxTotPct4.ForeColor = Color.Black
-            flgPctError4 = 0
-        End If
 
         '-----------------------------------------------------------------------------------------------------------------
         '                                      Format display values
@@ -1437,21 +1441,10 @@ cleanup_and_exit:       ' close down sequencer operations
             flgFlowError12 = 0
         End If
 
-        CheckForError()
+        'Call tbxErrMsg_TextChanged(sender, e)
+
     End Sub
 
-    ' update MESSAGE BOX with any error messages
-    Private Sub CheckForError()
-        If flgFlowError1 = 1 Or flgFlowError2 = 1 Or flgFlowError3 = 1 Or flgFlowError4 = 1 Or
-            flgFlowError5 = 1 Or flgFlowError6 = 1 Or flgFlowError7 = 1 Or flgFlowError8 = 1 Or
-            flgFlowError9 = 1 Or flgFlowError10 = 1 Or flgFlowError11 = 1 Or flgFlowError12 = 1 Then
-            tbxErrMsg.Text = "Flow out of range!" & vbCrLf & "Adjust gas percent or TOTAL FLOW."
-        ElseIf flgPctError1 = 1 Or flgPctError2 = 1 Or flgPctError3 = 1 Or flgPctError4 = 1 Then
-            tbxErrMsg.Text = "Mixture cannot exceed 100%" & vbCrLf & "Adjust gas percent to correct."
-        Else
-            tbxErrMsg.Text = "STATUS: OK"
-        End If
-    End Sub
 
 
     '=========================================================================================================================================
@@ -1486,7 +1479,10 @@ cleanup_and_exit:       ' close down sequencer operations
         Else
             ledRunning4.BackColor = Color.RosyBrown    ' gray
         End If
-jumparound:
+
+        Call tbxErrMsg_TextChanged(sender, e)
+
+jumparound:     ' vector here on error during value entry
     End Sub
 End Class
 
