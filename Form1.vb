@@ -1,7 +1,7 @@
 ﻿' *****************************************************************************************************
 ' GSM-CommVS 
 ' (c) 2020 CWE, Inc.
-' 2020-07-04 v3.61
+' 2020-07-06 v3.61
 ' created with Visual Studio 2019  vb.net
 ' Conutrol program for CWE GSM-3 Gas Mixer
 ' *****************************************************************************************************
@@ -195,7 +195,7 @@ Public Class GSMTimed
         If seqRunning = True Then Return
 
         seqRunning = True                               ' flag to prevent user from clicking other RUN buttons while sequencer is running
-
+        On Error Resume Next
 restart:                                                ' cycle back here to repeat sequence
         ' check user time boxes for proper format "HH:MM:SS",  highlight with red text if invalid
         For x = 0 To 14
